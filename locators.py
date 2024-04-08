@@ -6,9 +6,8 @@ class BurgerLocators:
     BUTTON_LOGIN = (By.XPATH, "//button[contains(text(), 'Войти')]") #Текст кнопки входа
     REDISTRATION_LINK = (By.XPATH, "//a[starts-with(@href, '/re')]") #Сылка на регестрацию
 
-    ACCOUNT_NAME = (By.XPATH, "(//input[@type = 'text'])[1]") #Поле ввода имени
-    ACCOUNT_EMAIL = (By.XPATH, "(//input[@type = 'text'])[1]") #Поле ввода электроной почты
-    REGIDTER_ACCOUNT_EMAIL = (By.XPATH, "(//input[@type = 'text'])[2]") #Поле вода электроной почты на странице регестраций
+    ACCOUNT_NAME = (By.XPATH, "//label[contains(text(), 'Имя')]/parent::div/child::input") #Поле ввода имени "(//input[@type = 'text'])[1]"
+    ACCOUNT_EMAIL = (By.XPATH, "//label[contains(text(), 'Email')]/parent::div/child::input") #Поле ввода электроной почты
     ACCOUNT_PASSWORD = (By.XPATH, "//input[@type = 'password']") #Поле ввода пароля
     ERROR_TEXT_INCORRECT_PASSWORD = (By.XPATH, "//p[contains(text(), 'Некорректный пароль')]") #текст ошибки прине коректном воде пароля
 
@@ -32,5 +31,5 @@ class BurgerLocators:
     TEXT_SECTION_DESIGNER_SAUCES = (By.XPATH, "//h2[contains(text(), 'Соусы')]") #Текст раздела в конструкторе соусы
     TEXT_SECTION_DESIGNER_BURGERS = (By.XPATH, "//h2[contains(text(), 'Булки')]") #Текст раздела в конструкторе булки
 
-    LOGO = (By.XPATH, "//div[@class = 'AppHeader_headerlogo2D0X2']") #Логотип на главной страницы
+    LOGO = (By.XPATH, "//div[@class = 'AppHeader_header__logo__2D0X2']/child::a") #Логотип на главной страницы
 
