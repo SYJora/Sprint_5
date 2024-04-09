@@ -19,7 +19,7 @@ class TestDesigner:
             *BurgerLocators.TEXT_SECTION_DESIGNER_FILLING).is_displayed() and driver.find_element(
             *BurgerLocators.TEXT_SECTION_DESIGNER_FILLING).text == 'Начинки', "Filling is not set"
 
-        driver.quit()
+
 
     def test_designer_select_sauces(self, driver):
 
@@ -49,5 +49,3 @@ class TestDesigner:
         assert driver.find_element(
             *BurgerLocators.TEXT_SECTION_DESIGNER_BURGERS).is_displayed() and driver.find_element(
             *BurgerLocators.TEXT_SECTION_DESIGNER_BURGERS).text == 'Булки', "Filling is not set"
-
-        driver.quit()
