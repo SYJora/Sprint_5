@@ -1,9 +1,9 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+import conftest
 import settings
 from locators import BurgerLocators
-from data import BurgerTestData
 
 class TestPersonal_account:
 
@@ -11,12 +11,7 @@ class TestPersonal_account:
         button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
         button_login.click()
 
-        email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
-        email.send_keys(BurgerTestData.EMAIL)
-        password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
-        password.send_keys(BurgerTestData.PASSWORD)
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
-        button_login.click()
+        conftest.log_in(driver)
 
         button_personal_account = driver.find_element(*BurgerLocators.BUTTON_PERSONAL_ACCOUNT)
         button_personal_account.click()
@@ -27,5 +22,3 @@ class TestPersonal_account:
         assert driver.find_element(
             *BurgerLocators.TAB_PROFAIL).is_displayed() and driver.find_element(
             *BurgerLocators.TAB_PROFAIL).text == 'Профиль', 'Personal account enter faield'
-
-        driver.quit()

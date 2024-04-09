@@ -33,7 +33,6 @@ class TestDesigner:
             *BurgerLocators.TEXT_SECTION_DESIGNER_SAUCES).is_displayed() and driver.find_element(
             *BurgerLocators.TEXT_SECTION_DESIGNER_SAUCES).text == 'Соусы', "Filling is not set"
 
-        driver.quit()
 
     def test_designer_select_burgers(self, driver):
 

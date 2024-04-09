@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import conftest
 import settings
 from locators import BurgerLocators
-from data import BurgerTestData
+
 
 class TestBurgerLogin:
 

@@ -35,4 +35,3 @@ class TestPersonalAccountExit:
             *BurgerLocators.TEXT_LOGIN_PAGE).is_displayed() and driver.find_element(
             *BurgerLocators.TEXT_LOGIN_PAGE).text == 'Вход', 'Log-out faield'
 
-        driver.quit()
