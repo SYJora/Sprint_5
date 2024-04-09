@@ -1,4 +1,6 @@
 import pytest
+import urls
+from pip._internal.utils import urls
 from selenium import webdriver
 from random import randint
 from data import BurgerTestData
@@ -9,7 +11,7 @@ from locators import BurgerLocators
 def driver():
     chrome_driver = webdriver.Chrome()
     chrome_driver.maximize_window()
-    chrome_driver.get("https://stellarburgers.nomoreparties.site/")
+    chrome_driver.get(urls.URL)
 
     yield chrome_driver
 
