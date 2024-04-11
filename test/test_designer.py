@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import settings
 from locators import BurgerLocators
-from data import BurgerTestData
 
 class TestDesigner:
 
@@ -31,7 +30,7 @@ class TestDesigner:
 
         assert driver.find_element(
             *BurgerLocators.TEXT_SECTION_DESIGNER_SAUCES).is_displayed() and driver.find_element(
-            *BurgerLocators.TEXT_SECTION_DESIGNER_SAUCES).text == 'Соусы', "Filling is not set"
+            *BurgerLocators.TEXT_SECTION_DESIGNER_SAUCES).text == 'Соусы', "Sauces is not set"
 
 
     def test_designer_select_burgers(self, driver):
@@ -47,4 +46,4 @@ class TestDesigner:
 
         assert driver.find_element(
             *BurgerLocators.TEXT_SECTION_DESIGNER_BURGERS).is_displayed() and driver.find_element(
-            *BurgerLocators.TEXT_SECTION_DESIGNER_BURGERS).text == 'Булки', "Filling is not set"
+            *BurgerLocators.TEXT_SECTION_DESIGNER_BURGERS).text == 'Булки', "Buns is not set"

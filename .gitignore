@@ -212,3 +212,10 @@ dmypy.json
 cython_debug/
 
 /test_functions.py
+/.idea/vcs.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/test123.iml
+!/function.py

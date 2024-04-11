@@ -1,18 +1,14 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-import conftest
 import settings
+from data import BurgerTestData
 from locators import BurgerLocators
 
 
 class TestBurgerLogin:
 
-    def test_log_in_button_on_main_page(self, driver):
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
-        button_login.click()
-
-        conftest.log_in(driver)
+    def test_log_in_button_on_main_page(self, driver, log_in):
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))
@@ -21,11 +17,7 @@ class TestBurgerLogin:
             *BurgerLocators.BUTTON_MAKE_ORDER).text == 'Оформить заказ', 'Log-in, Faild'
 
 
-    def test_login_in_by_button_personal_account(self, driver):
-        button_personal_account = driver.find_element(*BurgerLocators.BUTTON_PERSONAL_ACCOUNT)
-        button_personal_account.click()
-
-        conftest.log_in(driver)
+    def test_login_in_by_button_personal_account(self, driver, by_button_personal_account):
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))
@@ -44,7 +36,12 @@ class TestBurgerLogin:
         login_link = driver.find_element(*BurgerLocators.LINK_LOGIN)
         login_link.click()
 
-        conftest.log_in(driver)
+        email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
+        email.send_keys(BurgerTestData.EMAIL)
+        password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
+        password.send_keys(BurgerTestData.PASSWORD)
+        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
+        button_login.click()
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))
@@ -63,7 +60,12 @@ class TestBurgerLogin:
         login_link = driver.find_element(*BurgerLocators.LINK_LOGIN)
         login_link.click()
 
-        conftest.log_in(driver)
+        email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
+        email.send_keys(BurgerTestData.EMAIL)
+        password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
+        password.send_keys(BurgerTestData.PASSWORD)
+        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
+        button_login.click()
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))

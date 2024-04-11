@@ -3,15 +3,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import conftest
 import settings
+from data import BurgerTestData
 from locators import BurgerLocators
 
 class TestPersonal_account:
 
-    def test_enter_personal_account(self, driver):
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
-        button_login.click()
-
-        conftest.log_in(driver)
+    def test_enter_personal_account(self, driver, log_in):
 
         button_personal_account = driver.find_element(*BurgerLocators.BUTTON_PERSONAL_ACCOUNT)
         button_personal_account.click()
