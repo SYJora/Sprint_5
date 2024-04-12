@@ -7,20 +7,7 @@ from data import BurgerTestData
 
 class TestPersonalAccountExit:
 
-    def test_log_out(self, driver):
-
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
-        button_login.click()
-
-        email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
-        email.send_keys(BurgerTestData.EMAIL)
-        password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
-        password.send_keys(BurgerTestData.PASSWORD)
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
-        button_login.click()
-
-        button_personal_account = driver.find_element(*BurgerLocators.BUTTON_PERSONAL_ACCOUNT)
-        button_personal_account.click()
+    def test_log_out(self, driver, press_button_login_in_account, log_in, press_button_personal_account):
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_LOGOUT, 'Выход'))
