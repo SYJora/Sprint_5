@@ -8,7 +8,7 @@ from locators import BurgerLocators
 
 class TestBurgerLogin:
 
-    def test_log_in_button_on_main_page(self, driver, log_in):
+    def test_log_in_button_on_main_page(self, driver, press_button_login_in_account, log_in):
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))
@@ -17,7 +17,7 @@ class TestBurgerLogin:
             *BurgerLocators.BUTTON_MAKE_ORDER).text == 'Оформить заказ', 'Log-in, Faild'
 
 
-    def test_login_in_by_button_personal_account(self, driver, by_button_personal_account):
+    def test_login_in_by_button_personal_account(self, driver, press_button_personal_account, log_in):
 
         WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
             expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))

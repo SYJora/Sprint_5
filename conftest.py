@@ -24,26 +24,19 @@ def gen_random_email():
 
 @pytest.fixture(scope = 'function')
 def log_in(driver):
+    email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
+    email.send_keys(BurgerTestData.EMAIL)
+    password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
+    password.send_keys(BurgerTestData.PASSWORD)
+    button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
+    button_login.click()
+
+@pytest.fixture(scope = 'function')
+def press_button_login_in_account(driver):
     button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
     button_login.click()
 
-    email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
-    email.send_keys(BurgerTestData.EMAIL)
-    password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
-    password.send_keys(BurgerTestData.PASSWORD)
-    button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
-    button_login.click()
-    yield
-
 @pytest.fixture(scope = 'function')
-def by_button_personal_account(driver):
+def press_button_personal_account(driver):
     buttton_log_in_personal_account = driver.find_element(*BurgerLocators.BUTTON_PERSONAL_ACCOUNT)
     buttton_log_in_personal_account.click()
-
-    email = driver.find_element(*BurgerLocators.ACCOUNT_EMAIL)
-    email.send_keys(BurgerTestData.EMAIL)
-    password = driver.find_element(*BurgerLocators.ACCOUNT_PASSWORD)
-    password.send_keys(BurgerTestData.PASSWORD)
-    button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN)
-    button_login.click()
-    yield

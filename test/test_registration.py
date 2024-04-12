@@ -8,10 +8,7 @@ from data import BurgerTestData
 
 class TestBurgerRegistration:
 
-    def test_registration(self, driver, gen_random_email):
-
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
-        button_login.click()
+    def test_registration(self, driver, press_button_login_in_account, gen_random_email):
 
         registretion_link = driver.find_element(*BurgerLocators.REDISTRATION_LINK)
         registretion_link.click()
@@ -32,10 +29,7 @@ class TestBurgerRegistration:
         assert driver.find_element(*BurgerLocators.BUTTON_LOGIN).is_displayed() and driver.find_element(*BurgerLocators.BUTTON_LOGIN).text == 'Войти', 'Registration Faild'
 
 
-    def test_registration_accaunt_with_incorrect_password(self, driver):
-
-        button_login = driver.find_element(*BurgerLocators.BUTTON_LOGIN_IN_ACCOUNT)
-        button_login.click()
+    def test_registration_accaunt_with_incorrect_password(self, driver, press_button_login_in_account):
 
         registretion_link = driver.find_element(*BurgerLocators.REDISTRATION_LINK)
         registretion_link.click()

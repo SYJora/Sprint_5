@@ -8,7 +8,10 @@ from locators import BurgerLocators
 
 class TestPersonal_account:
 
-    def test_enter_personal_account(self, driver, log_in):
+    def test_enter_personal_account(self, driver, press_button_personal_account, log_in):
+
+        WebDriverWait(driver, settings.MAX_WAIT_TIME).until(
+            expected_conditions.text_to_be_present_in_element(BurgerLocators.BUTTON_MAKE_ORDER, 'Оформить заказ'))
 
         button_personal_account = driver.find_element(*BurgerLocators.BUTTON_PERSONAL_ACCOUNT)
         button_personal_account.click()
